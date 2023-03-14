@@ -1,0 +1,52 @@
+{
+  "applications": "*",
+  "changelogDate": "20230314175408",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "supplier",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "shortName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fullName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "taxCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Supplier",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "address",
+      "ownerSide": true,
+      "relationshipName": "address",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "bankAccount",
+      "otherEntityRelationshipName": "supplier",
+      "relationshipName": "bankAccount",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "invoice",
+      "otherEntityRelationshipName": "supplier",
+      "relationshipName": "invoice",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

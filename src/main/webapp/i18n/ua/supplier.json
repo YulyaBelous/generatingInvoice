@@ -1,0 +1,30 @@
+{
+  "generatingInvoiceApp": {
+    "supplier": {
+      "home": {
+        "title": "Suppliers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Створити новий Supplier",
+        "createOrEditLabel": "Створити чи редагувати Supplier",
+        "notFound": "No Suppliers found"
+      },
+      "created": "Новий Supplier створений з ідентифікатором {{ param }}",
+      "updated": "Supplier оновлений з ідентифікатором {{ param }}",
+      "deleted": "Supplier видалений з ідентифікатором {{ param }}",
+      "delete": {
+        "question": "Ви впевнені, що хочете видалити Supplier {{ id }}?"
+      },
+      "detail": {
+        "title": "Supplier"
+      },
+      "id": "ID",
+      "name": "Name",
+      "shortName": "Short Name",
+      "fullName": "Full Name",
+      "taxCode": "Tax Code",
+      "address": "Address",
+      "bankAccount": "Bank Account",
+      "invoice": "Invoice"
+    }
+  }
+}

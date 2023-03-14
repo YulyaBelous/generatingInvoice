@@ -1,0 +1,32 @@
+{
+  "generatingInvoiceApp": {
+    "bankAccount": {
+      "home": {
+        "title": "Bank Accounts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Створити новий Bank Account",
+        "createOrEditLabel": "Створити чи редагувати Bank Account",
+        "notFound": "No Bank Accounts found"
+      },
+      "created": "Новий Bank Account створений з ідентифікатором {{ param }}",
+      "updated": "Bank Account оновлений з ідентифікатором {{ param }}",
+      "deleted": "Bank Account видалений з ідентифікатором {{ param }}",
+      "delete": {
+        "question": "Ви впевнені, що хочете видалити Bank Account {{ id }}?"
+      },
+      "detail": {
+        "title": "Bank Account"
+      },
+      "id": "ID",
+      "name": "Name",
+      "addressLine": "Address Line",
+      "accountNumber": "Account Number",
+      "bankName": "Bank Name",
+      "swift": "Swift",
+      "correspondentName": "Correspondent Name",
+      "correspondentAddress": "Correspondent Address",
+      "correspondentSwift": "Correspondent Swift",
+      "supplier": "Supplier"
+    }
+  }
+}

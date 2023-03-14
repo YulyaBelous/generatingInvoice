@@ -1,0 +1,31 @@
+{
+  "generatingInvoiceApp": {
+    "invoice": {
+      "home": {
+        "title": "Invoices",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Створити новий Invoice",
+        "createOrEditLabel": "Створити чи редагувати Invoice",
+        "notFound": "No Invoices found"
+      },
+      "created": "Новий Invoice створений з ідентифікатором {{ param }}",
+      "updated": "Invoice оновлений з ідентифікатором {{ param }}",
+      "deleted": "Invoice видалений з ідентифікатором {{ param }}",
+      "delete": {
+        "question": "Ви впевнені, що хочете видалити Invoice {{ id }}?"
+      },
+      "detail": {
+        "title": "Invoice"
+      },
+      "id": "ID",
+      "number": "Number",
+      "date": "Date",
+      "description": "Description",
+      "unitPrice": "Unit Price",
+      "quantity": "Quantity",
+      "amount": "Amount",
+      "supplier": "Supplier",
+      "customer": "Customer"
+    }
+  }
+}

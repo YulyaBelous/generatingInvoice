@@ -1,0 +1,29 @@
+{
+  "generatingInvoiceApp": {
+    "customer": {
+      "home": {
+        "title": "Customers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Створити новий Customer",
+        "createOrEditLabel": "Створити чи редагувати Customer",
+        "notFound": "No Customers found"
+      },
+      "created": "Новий Customer створений з ідентифікатором {{ param }}",
+      "updated": "Customer оновлений з ідентифікатором {{ param }}",
+      "deleted": "Customer видалений з ідентифікатором {{ param }}",
+      "delete": {
+        "question": "Ви впевнені, що хочете видалити Customer {{ id }}?"
+      },
+      "detail": {
+        "title": "Customer"
+      },
+      "id": "ID",
+      "name": "Name",
+      "shortName": "Short Name",
+      "fullName": "Full Name",
+      "taxCode": "Tax Code",
+      "address": "Address",
+      "invoice": "Invoice"
+    }
+  }
+}

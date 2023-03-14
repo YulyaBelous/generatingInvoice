@@ -1,0 +1,55 @@
+{
+  "applications": "*",
+  "changelogDate": "20230314175412",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "bank_account",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "addressLine",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "accountNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bankName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "swift",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "correspondentName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "correspondentAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "correspondentSwift",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "BankAccount",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "supplier",
+      "otherEntityRelationshipName": "bankAccount",
+      "relationshipName": "supplier",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}
