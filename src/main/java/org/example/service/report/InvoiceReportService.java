@@ -1,43 +1,36 @@
 package org.example.service.report;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.example.domain.Invoice;
 import org.example.repository.InvoiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
 
 @Service
 public class InvoiceReportService {
 
-    @Autowired
-    private InvoiceRepository invoiceRepository;
-
-    public String generateReport() throws JRException {
-        // Optional<Invoice> invoice = invoiceRepository.findById(id);
-        List<Invoice> invoices = invoiceRepository.findAll();
-        JasperReport jasperReport = JasperCompileManager.compileReport("invoiceReport.jrxml");
-
-        // Get your data source
-        JRBeanCollectionDataSource jrBeanCollectionDataSource = new JRBeanCollectionDataSource(invoices);
-
-        // Add parameters
+    public String exportReport(String reportFormat, Invoice invoice) throws FileNotFoundException, JRException {
+        String path = "D:";
+        List<Invoice> invoices = new ArrayList<>();
+        invoices.add(invoice);
+        File file = ResourceUtils.getFile("classpath:invoiceReport.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(invoices);
         Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Test");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+        if (reportFormat.equalsIgnoreCase("html")) {
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\invoices_" + invoice.getId() + ".html");
+        }
+        if (reportFormat.equalsIgnoreCase("pdf")) {
+            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\invoices_" + invoice.getId() + ".pdf");
+        }
 
-        parameters.put("createdBy", "Websparrow.org");
-
-        // Fill the report
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, jrBeanCollectionDataSource);
-
-        // Export the report to a PDF file
-        JasperExportManager.exportReportToPdfFile(jasperPrint, "invoiceReport.pdf");
-
-        System.out.println("Done");
-
-        return "Report successfully generated @path= " + "invoiceReport.jrxml";
+        return "report generated in path : " + path;
     }
 }

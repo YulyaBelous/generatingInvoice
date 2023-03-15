@@ -1,5 +1,6 @@
 package org.example.web.rest;
 
+import java.io.FileNotFoundException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -12,6 +13,7 @@ import org.example.service.report.InvoiceReportService;
 import org.example.web.rest.errors.BadRequestAlertException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,6 +37,9 @@ public class InvoiceResource {
     private String applicationName;
 
     private final InvoiceRepository invoiceRepository;
+
+    @Autowired
+    private InvoiceReportService invoiceReportService;
 
     public InvoiceResource(InvoiceRepository invoiceRepository) {
         this.invoiceRepository = invoiceRepository;
@@ -170,9 +175,10 @@ public class InvoiceResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the invoice, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/invoices/{id}")
-    public ResponseEntity<Invoice> getInvoice(@PathVariable Long id) {
+    public ResponseEntity<Invoice> getInvoice(@PathVariable Long id) throws FileNotFoundException, JRException {
         log.debug("REST request to get Invoice : {}", id);
         Optional<Invoice> invoice = invoiceRepository.findById(id);
+        invoiceReportService.exportReport("pdf", invoiceRepository.getReferenceById(id));
         return ResponseUtil.wrapOrNotFound(invoice);
     }
 
@@ -190,14 +196,5 @@ public class InvoiceResource {
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
-    }
-
-    private InvoiceReportService irs;
-
-    @GetMapping("/report/{id}")
-    public String reportInvoice(@PathVariable Long id) throws JRException {
-        log.debug("REST request to get Invoice : {}", id);
-        Optional<Invoice> invoice = invoiceRepository.findById(id);
-        return irs.generateReport();
     }
 }

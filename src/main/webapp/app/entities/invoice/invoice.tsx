@@ -114,6 +114,9 @@ export const Invoice = () => {
                           <Translate contentKey="entity.action.delete">Delete</Translate>
                         </span>
                       </Button>
+                      <Button tag={Link} to={`/invoice/${invoice.id}/report`} color="secondary" size="sm" data-cy="entityReportButton">
+                        <FontAwesomeIcon icon="book" /> <span className="d-none d-md-inline">PDF</span>
+                      </Button>
                     </div>
                   </td>
                 </tr>

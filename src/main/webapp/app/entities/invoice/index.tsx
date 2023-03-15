@@ -7,6 +7,7 @@ import Invoice from './invoice';
 import InvoiceDetail from './invoice-detail';
 import InvoiceUpdate from './invoice-update';
 import InvoiceDeleteDialog from './invoice-delete-dialog';
+import InvoiceReport from 'app/entities/invoice/invoice-report';
 
 const InvoiceRoutes = () => (
   <ErrorBoundaryRoutes>
@@ -16,6 +17,7 @@ const InvoiceRoutes = () => (
       <Route index element={<InvoiceDetail />} />
       <Route path="edit" element={<InvoiceUpdate />} />
       <Route path="delete" element={<InvoiceDeleteDialog />} />
+      <Route path="report" element={<InvoiceReport />} />
     </Route>
   </ErrorBoundaryRoutes>
 );
