@@ -178,8 +178,14 @@ public class InvoiceResource {
     public ResponseEntity<Invoice> getInvoice(@PathVariable Long id) throws FileNotFoundException, JRException {
         log.debug("REST request to get Invoice : {}", id);
         Optional<Invoice> invoice = invoiceRepository.findById(id);
-        invoiceReportService.exportReport("pdf", invoiceRepository.getReferenceById(id));
         return ResponseUtil.wrapOrNotFound(invoice);
+    }
+
+    @GetMapping("/invoices/report/{id}")
+    public ResponseEntity<Void> reportInvoice(@PathVariable Long id) throws FileNotFoundException, JRException {
+        log.debug("REST request to report Invoice : {}", id);
+        String message = invoiceReportService.exportReport(invoiceRepository.getReferenceById(id));
+        return ResponseEntity.noContent().headers(HeaderUtil.createAlert(applicationName, message, id.toString())).build();
     }
 
     /**

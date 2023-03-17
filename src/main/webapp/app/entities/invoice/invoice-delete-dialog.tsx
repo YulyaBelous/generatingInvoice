@@ -9,8 +9,6 @@ import { getEntity, deleteEntity } from './invoice.reducer';
 
 export const InvoiceDeleteDialog = () => {
   const dispatch = useAppDispatch();
-
-  const location = useLocation();
   const navigate = useNavigate();
   const { id } = useParams<'id'>();
 

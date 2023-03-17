@@ -51,18 +51,20 @@
         </conditionalStyle>
 
     </style>
-    <field name="number" class="java.lang.String">
-    </field>
-    <field name="date" class="java.time.LocalDate">
-    </field>
-    <field name="description" class="java.lang.String">
-    </field>
-    <field name="unitPrice" class="java.lang.Double">
-    </field>
-    <field name="quantity" class="java.lang.Integer">
-    </field>
-    <field name="amount" class="java.lang.Double">
-    </field>
+    <field name="number" class="java.lang.String"></field>
+    <field name="date" class="java.time.LocalDate"></field>
+    <field name="description" class="java.lang.String"></field>
+    <field name="unitPrice" class="java.lang.Double"></field>
+    <field name="quantity" class="java.lang.Integer"></field>
+    <field name="amount" class="java.lang.Double"></field>
+    <field name="supplier.name" class="java.lang.String"></field>
+    <field name="supplier.shortName" class="java.lang.String"></field>
+    <field name="supplier.fullName" class="java.lang.String"></field>
+    <field name="supplier.taxCode" class="java.lang.String"></field>
+    <field name="customer.name" class="java.lang.String"></field>
+    <field name="customer.shortName" class="java.lang.String"></field>
+    <field name="customer.fullName" class="java.lang.String"></field>
+    <field name="customer.taxCode" class="java.lang.String"></field>
     <title>
 
         <band height="221" splitType="Stretch">
@@ -76,22 +78,22 @@
                 </textElement>
                 <text><![CDATA[Supplier]]></text>
             </staticText>
-            <staticText>
+            <textField>
                 <reportElement x="32" y="82" width="120" height="15" uuid="33274f5d-5b7e-4be2-a2ff-65d452a618ed"/>
-                <text><![CDATA[name]]></text>
-            </staticText>
-            <staticText>
+                <textFieldExpression><![CDATA[$F{supplier.name}]]></textFieldExpression>
+            </textField>
+            <textField>
                 <reportElement x="32" y="97" width="120" height="15" uuid="1d3045ed-03d6-4253-a959-aeeb491b73ca"/>
-                <text><![CDATA[Short name]]></text>
-            </staticText>
-            <staticText>
+                <textFieldExpression><![CDATA[$F{supplier.shortName}]]></textFieldExpression>
+            </textField>
+            <textField>
                 <reportElement x="32" y="112" width="120" height="15" uuid="235bf8b6-1e1e-49c7-b59f-7a46c30b8209"/>
-                <text><![CDATA[Full name]]></text>
-            </staticText>
-            <staticText>
+                <textFieldExpression><![CDATA[$F{supplier.fullName}]]></textFieldExpression>
+            </textField>
+            <textField>
                 <reportElement x="32" y="127" width="120" height="15" uuid="665f25c2-8663-4951-b699-1ab863bdeb76"/>
-                <text><![CDATA[taxCode]]></text>
-            </staticText>
+                <textFieldExpression><![CDATA[$F{supplier.taxCode}]]></textFieldExpression>
+            </textField>
             <staticText>
                 <reportElement x="400" y="50" width="84" height="25" uuid="139ebe8d-25b0-411e-986c-270015400874">
                     <property name="local_mesure_unitheight" value="pixel"/>
@@ -134,22 +136,22 @@
                 </textElement>
                 <text><![CDATA[						Invoice]]></text>
             </staticText>
-            <staticText>
+            <textField>
                 <reportElement x="400" y="83" width="120" height="15" uuid="aff61431-5db0-476f-bb1b-a7b6fdfcd1a5"/>
-                <text><![CDATA[Name]]></text>
-            </staticText>
-            <staticText>
+                <textFieldExpression><![CDATA[$F{customer.name}]]></textFieldExpression>
+            </textField>
+            <textField>
                 <reportElement x="400" y="98" width="120" height="15" uuid="8115dc9c-87ed-4eee-b60d-059931ea9e07"/>
-                <text><![CDATA[Short name]]></text>
-            </staticText>
-            <staticText>
+                <textFieldExpression><![CDATA[$F{customer.shortName}]]></textFieldExpression>
+            </textField>
+            <textField>
                 <reportElement x="400" y="113" width="120" height="15" uuid="4193ab4a-a782-4156-883a-f5fe4fa2fc33"/>
-                <text><![CDATA[Full name]]></text>
-            </staticText>
-            <staticText>
+                <textFieldExpression><![CDATA[$F{customer.fullName}]]></textFieldExpression>
+            </textField>
+            <textField>
                 <reportElement x="400" y="128" width="120" height="15" uuid="de3548e0-4bd4-475f-9894-b25447472fb2"/>
-                <text><![CDATA[taxCode]]></text>
-            </staticText>
+                <textFieldExpression><![CDATA[$F{customer.taxCode}]]></textFieldExpression>
+            </textField>
             <line>
                 <reportElement x="-21" y="149" width="596" height="1" uuid="806ce5df-1219-4876-ae0c-ca7405b1f246">
                     <property name="local_mesure_unitheight" value="pixel"/>

@@ -4,7 +4,16 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import sinon from 'sinon';
 
-import reducer, { createEntity, deleteEntity, getEntities, getEntity, updateEntity, partialUpdateEntity, reset } from './invoice.reducer';
+import reducer, {
+  createEntity,
+  deleteEntity,
+  getEntities,
+  getEntity,
+  updateEntity,
+  partialUpdateEntity,
+  reset,
+  reportEntity,
+} from './invoice.reducer';
 import { EntityState } from 'app/shared/reducers/reducer.utils';
 import { IInvoice, defaultValue } from 'app/shared/model/invoice.model';
 
@@ -51,7 +60,7 @@ describe('Entities reducer tests', () => {
 
   describe('Requests', () => {
     it('should set state to loading', () => {
-      testMultipleTypes([getEntities.pending.type, getEntity.pending.type], {}, state => {
+      testMultipleTypes([getEntities.pending.type, getEntity.pending.type, reportEntity.pending.type], {}, state => {
         expect(state).toMatchObject({
           errorMessage: null,
           updateSuccess: false,
@@ -91,6 +100,7 @@ describe('Entities reducer tests', () => {
           updateEntity.rejected.type,
           partialUpdateEntity.rejected.type,
           deleteEntity.rejected.type,
+          reportEntity.rejected.type,
         ],
         'some message',
         state => {

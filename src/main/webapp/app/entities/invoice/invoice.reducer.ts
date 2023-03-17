@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { createAsyncThunk, isFulfilled, isPending, isRejected } from '@reduxjs/toolkit';
+import { createAsyncThunk, isFulfilled, isPending } from '@reduxjs/toolkit';
 
 import { cleanEntity } from 'app/shared/util/entity-utils';
 import { IQueryParams, createEntitySlice, EntityState, serializeAxiosError } from 'app/shared/reducers/reducer.utils';
@@ -31,6 +31,11 @@ export const getEntity = createAsyncThunk(
   },
   { serializeError: serializeAxiosError }
 );
+
+export const reportEntity = createAsyncThunk('invoice/report_entity', async (id: string | number) => {
+  const requestUrl = `${apiUrl}/report/${id}`;
+  return axios.get(requestUrl);
+});
 
 export const createEntity = createAsyncThunk(
   'invoice/create_entity',
@@ -89,6 +94,11 @@ export const InvoiceSlice = createEntitySlice({
         state.updateSuccess = true;
         state.entity = {};
       })
+      .addCase(reportEntity.fulfilled, state => {
+        state.updating = false;
+        state.updateSuccess = true;
+        state.entity = {};
+      })
       .addMatcher(isFulfilled(getEntities), (state, action) => {
         const { data } = action.payload;
 
@@ -109,7 +119,7 @@ export const InvoiceSlice = createEntitySlice({
         state.updateSuccess = false;
         state.loading = true;
       })
-      .addMatcher(isPending(createEntity, updateEntity, partialUpdateEntity, deleteEntity), state => {
+      .addMatcher(isPending(createEntity, updateEntity, partialUpdateEntity, deleteEntity, reportEntity), state => {
         state.errorMessage = null;
         state.updateSuccess = false;
         state.updating = true;

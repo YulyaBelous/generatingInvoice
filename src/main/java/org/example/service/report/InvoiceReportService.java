@@ -14,7 +14,8 @@ import org.springframework.util.ResourceUtils;
 @Service
 public class InvoiceReportService {
 
-    public String exportReport(String reportFormat, Invoice invoice) throws FileNotFoundException, JRException {
+    public String exportReport(Invoice invoice) throws FileNotFoundException, JRException {
+        String message;
         String path = "D:";
         List<Invoice> invoices = new ArrayList<>();
         invoices.add(invoice);
@@ -24,13 +25,13 @@ public class InvoiceReportService {
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Test");
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
-        if (reportFormat.equalsIgnoreCase("html")) {
-            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\invoices_" + invoice.getId() + ".html");
-        }
-        if (reportFormat.equalsIgnoreCase("pdf")) {
+        File filePDF = new File(path + "\\invoices_" + invoice.getId() + ".pdf");
+        if (!filePDF.exists()) {
             JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\invoices_" + invoice.getId() + ".pdf");
+            message = "Invoice successfully converted to pdf";
+        } else {
+            message = "Error: A report with the same name already exists";
         }
-
-        return "report generated in path : " + path;
+        return message;
     }
 }

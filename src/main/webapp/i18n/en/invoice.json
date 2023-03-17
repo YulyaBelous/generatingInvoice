@@ -14,6 +14,12 @@
       "delete": {
         "question": "Are you sure you want to delete Invoice {{ id }}?"
       },
+      "report": {
+        "name": "Report",
+        "title": "Confirm create report operation",
+        "question": "Are you sure you want to download report Invoice {{ id }}?",
+        "cancel": "Cancel"
+      },
       "detail": {
         "title": "Invoice"
       },
