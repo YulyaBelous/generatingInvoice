@@ -76,6 +76,10 @@ export const InvoiceDetail = () => {
             <Translate contentKey="generatingInvoiceApp.invoice.customer">Customer</Translate>
           </dt>
           <dd>{invoiceEntity.customer ? invoiceEntity.customer.id : ''}</dd>
+          <dt>
+            <Translate contentKey="generatingInvoiceApp.supplier.bankAccount">Bank Account</Translate>
+          </dt>
+          <dd>{invoiceEntity.bankAccount ? invoiceEntity.bankAccount.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/invoice" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

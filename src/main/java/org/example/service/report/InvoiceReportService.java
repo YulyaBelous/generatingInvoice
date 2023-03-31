@@ -24,11 +24,9 @@ public class InvoiceReportService {
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(invoices);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("createdBy", "Test");
-        parameters.put(JRParameter.REPORT_LOCALE, new Locale("uk", "UA"));
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
         File filePDF = new File(path + "\\invoices_" + invoice.getId() + ".pdf");
         if (!filePDF.exists()) {
-            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\invoices_" + invoice.getId() + ".html");
             JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\invoices_" + invoice.getId() + ".pdf");
             message = "Invoice successfully converted to pdf";
         } else {

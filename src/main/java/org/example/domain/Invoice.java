@@ -49,6 +49,10 @@ public class Invoice implements Serializable {
     @JsonIgnoreProperties(value = { "address", "invoices" }, allowSetters = true)
     private Customer customer;
 
+    @ManyToOne
+    @JsonIgnoreProperties(value = { "invoices" }, allowSetters = true)
+    private BankAccount bankAccount;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -152,6 +156,19 @@ public class Invoice implements Serializable {
 
     public Invoice supplier(Supplier supplier) {
         this.setSupplier(supplier);
+        return this;
+    }
+
+    public BankAccount getBankAccount() {
+        return this.bankAccount;
+    }
+
+    public void setBankAccount(BankAccount bankAccount) {
+        this.bankAccount = bankAccount;
+    }
+
+    public Invoice bankAccount(BankAccount bankAccount) {
+        this.setBankAccount(bankAccount);
         return this;
     }
 

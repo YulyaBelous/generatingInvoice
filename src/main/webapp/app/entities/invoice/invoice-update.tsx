@@ -14,6 +14,7 @@ import { ICustomer } from 'app/shared/model/customer.model';
 import { getEntities as getCustomers } from 'app/entities/customer/customer.reducer';
 import { IInvoice } from 'app/shared/model/invoice.model';
 import { getEntity, updateEntity, createEntity, reset } from './invoice.reducer';
+import { getEntities as getBankAccounts } from 'app/entities/bank-account/bank-account.reducer';
 
 export const InvoiceUpdate = () => {
   const dispatch = useAppDispatch();
@@ -25,6 +26,7 @@ export const InvoiceUpdate = () => {
 
   const suppliers = useAppSelector(state => state.supplier.entities);
   const customers = useAppSelector(state => state.customer.entities);
+  const bankAccounts = useAppSelector(state => state.bankAccount.entities);
   const invoiceEntity = useAppSelector(state => state.invoice.entity);
   const loading = useAppSelector(state => state.invoice.loading);
   const updating = useAppSelector(state => state.invoice.updating);
@@ -43,6 +45,7 @@ export const InvoiceUpdate = () => {
 
     dispatch(getSuppliers({}));
     dispatch(getCustomers({}));
+    dispatch(getBankAccounts({}));
   }, []);
 
   useEffect(() => {
@@ -57,6 +60,7 @@ export const InvoiceUpdate = () => {
       ...values,
       supplier: suppliers.find(it => it.id.toString() === values.supplier.toString()),
       customer: customers.find(it => it.id.toString() === values.customer.toString()),
+      bankAccount: bankAccounts.find(it => it.id.toString() === values.bankAccount.toString()),
     };
 
     if (isNew) {
@@ -73,6 +77,7 @@ export const InvoiceUpdate = () => {
           ...invoiceEntity,
           supplier: invoiceEntity?.supplier?.id,
           customer: invoiceEntity?.customer?.id,
+          bankAccount: invoiceEntity?.bankAccount?.id,
         };
 
   return (
@@ -168,6 +173,22 @@ export const InvoiceUpdate = () => {
                 <option value="" key="0" />
                 {customers
                   ? customers.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="invoice-bank-account"
+                name="bankAccount"
+                data-cy="bankAccount"
+                label={translate('generatingInvoiceApp.supplier.bankAccount')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {bankAccounts
+                  ? bankAccounts.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

@@ -69,6 +69,9 @@ export const Invoice = () => {
                 <th>
                   <Translate contentKey="generatingInvoiceApp.invoice.customer">Customer</Translate>
                 </th>
+                <th>
+                  <Translate contentKey="generatingInvoiceApp.supplier.bankAccount">Bank Account</Translate>
+                </th>
                 <th />
               </tr>
             </thead>
@@ -88,6 +91,7 @@ export const Invoice = () => {
                   <td>{invoice.amount}</td>
                   <td>{invoice.supplier ? <Link to={`/supplier/${invoice.supplier.id}`}>{invoice.supplier.id}</Link> : ''}</td>
                   <td>{invoice.customer ? <Link to={`/customer/${invoice.customer.id}`}>{invoice.customer.id}</Link> : ''}</td>
+                  <td>{invoice.bankAccount ? <Link to={`/bank-account/${invoice.bankAccount.id}`}>{invoice.bankAccount.id}</Link> : ''}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/invoice/${invoice.id}`} color="info" size="sm" data-cy="entityDetailsButton">

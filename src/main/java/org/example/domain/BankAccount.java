@@ -2,6 +2,8 @@ package org.example.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -49,6 +51,11 @@ public class BankAccount implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties(value = { "address", "bankAccounts", "invoices" }, allowSetters = true)
     private Supplier supplier;
+
+    @OneToMany(mappedBy = "bankAccount")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "bankAccount", "supplier", "customer" }, allowSetters = true)
+    private Set<Invoice> invoices = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -179,6 +186,37 @@ public class BankAccount implements Serializable {
 
     public BankAccount supplier(Supplier supplier) {
         this.setSupplier(supplier);
+        return this;
+    }
+
+    public Set<Invoice> getInvoices() {
+        return this.invoices;
+    }
+
+    public void setInvoices(Set<Invoice> invoices) {
+        if (this.invoices != null) {
+            this.invoices.forEach(i -> i.setBankAccount(null));
+        }
+        if (invoices != null) {
+            invoices.forEach(i -> i.setBankAccount(this));
+        }
+        this.invoices = invoices;
+    }
+
+    public BankAccount invoices(Set<Invoice> invoices) {
+        this.setInvoices(invoices);
+        return this;
+    }
+
+    public BankAccount addInvoice(Invoice invoice) {
+        this.invoices.add(invoice);
+        invoice.setBankAccount(this);
+        return this;
+    }
+
+    public BankAccount removeInvoice(Invoice invoice) {
+        this.invoices.remove(invoice);
+        invoice.setBankAccount(null);
         return this;
     }
 

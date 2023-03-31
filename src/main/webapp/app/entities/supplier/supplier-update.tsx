@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { IAddress } from 'app/shared/model/address.model';
 import { getEntities as getAddresses } from 'app/entities/address/address.reducer';
+import { getEntities as getBankAccounts } from 'app/entities/bank-account/bank-account.reducer';
 import { ISupplier } from 'app/shared/model/supplier.model';
 import { getEntity, updateEntity, createEntity, reset } from './supplier.reducer';
 

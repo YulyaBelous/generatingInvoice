@@ -9,6 +9,7 @@ export interface ISupplier {
   fullName?: string | null;
   taxCode?: string;
   address?: IAddress | null;
+  bankAccount?: IBankAccount | null;
   bankAccounts?: IBankAccount[] | null;
   invoices?: IInvoice[] | null;
 }
