@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="invoiceReportNew" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c278cc41-afb2-4bef-a4ac-e5867eb8fb58">
     <field name="id" class="java.lang.Long"/>
     <field name="number" class="java.lang.String"/>
@@ -15,7 +16,6 @@
     <field name="supplier.address.city" class="java.lang.String"/>
     <field name="supplier.address.postCode" class="java.lang.String"/>
     <field name="supplier.address.streetLine1" class="java.lang.String"/>
-
     <field name="bankAccount.accountNumber" class="java.lang.String"/>
     <field name="bankAccount.bankName" class="java.lang.String"/>
     <field name="bankAccount.addressLine" class="java.lang.String"/>
@@ -23,7 +23,6 @@
     <field name="bankAccount.correspondentName" class="java.lang.String"/>
     <field name="bankAccount.correspondentAddress" class="java.lang.String"/>
     <field name="bankAccount.correspondentSwift" class="java.lang.String"/>
-
     <field name="customer.name" class="java.lang.String"/>
     <field name="customer.shortName" class="java.lang.String"/>
     <field name="customer.fullName" class="java.lang.String"/>
@@ -77,7 +76,10 @@
                 <textFieldExpression><![CDATA[$F{number}]]></textFieldExpression>
             </textField>
             <line>
-                <reportElement x="40" y="31" width="490" height="1" uuid="22a9e508-cbe2-4d00-b3db-b42b92883cb3"/>
+                <reportElement x="41" y="31" width="490" height="1" uuid="22a9e508-cbe2-4d00-b3db-b42b92883cb3"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <staticText>
                 <reportElement x="50" y="32" width="130" height="14" uuid="cbf40275-c006-43e5-b0c1-4bdeb9b6434b"/>
@@ -94,13 +96,22 @@
                 <textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
             </textField>
             <line>
-                <reportElement x="284" y="32" width="1" height="131" uuid="aa61005c-363d-4974-a039-976880d83e16"/>
+                <reportElement x="284" y="32" width="1" height="130" uuid="aa61005c-363d-4974-a039-976880d83e16"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <line>
                 <reportElement x="40" y="31" width="1" height="307" uuid="777d10c5-3a7b-4da6-baa7-dc559d2b30a4"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <line>
                 <reportElement x="530" y="31" width="1" height="308" uuid="ddb2c860-be15-4f1d-9121-cd8cb50691ea"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <staticText>
                 <reportElement x="295" y="32" width="130" height="14" uuid="88eaf420-9fb4-4da9-8318-d85d83494086"/>
@@ -146,6 +157,9 @@
             </textField>
             <line>
                 <reportElement x="40" y="61" width="490" height="1" uuid="58b8d0e2-fdbb-4b08-9589-a48fa722b056"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <staticText>
                 <reportElement x="50" y="62" width="130" height="14" uuid="62e60e09-269a-44df-a029-65c5ebf765e0"/>
@@ -207,6 +221,9 @@
             </textField>
             <line>
                 <reportElement x="40" y="118" width="490" height="1" uuid="4f3133de-18de-4751-873d-c6b52a57b3fe"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <staticText>
                 <reportElement x="50" y="119" width="130" height="14" uuid="54079978-70a5-4291-9ea1-3cfa2c217159"/>
@@ -238,9 +255,15 @@
             </textField>
             <line>
                 <reportElement x="40" y="133" width="490" height="1" uuid="8c4b7298-0c6e-4b13-8061-afb74f5b3fb0"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <line>
                 <reportElement x="41" y="46" width="490" height="1" uuid="82b69453-9e99-4cbf-bb5b-6306e34f0d88"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <staticText>
                 <reportElement x="50" y="134" width="130" height="14" uuid="3f0b11f6-1492-4d03-8398-7f6a401a4cf4"/>
@@ -272,6 +295,9 @@
             </staticText>
             <line>
                 <reportElement x="40" y="148" width="490" height="1" uuid="c0d87006-3594-4f05-9f4f-783baf7e8fc7"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <staticText>
                 <reportElement x="50" y="148" width="130" height="14" uuid="a3034062-b3fe-4db4-9a49-afed973a7efc"/>
@@ -303,6 +329,9 @@
             </textField>
             <line>
                 <reportElement x="40" y="162" width="490" height="1" uuid="f790d2a6-fc26-4d0f-920e-adce45b6280b"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <staticText>
                 <reportElement x="40" y="163" width="490" height="30" uuid="e7059a7a-4170-4460-9344-b45c712eaecd"/>
@@ -453,16 +482,25 @@
             </textField>
             <line>
                 <reportElement x="40" y="338" width="490" height="1" uuid="10a87bf1-13e0-4aa4-91d6-6d026dcfbdb1"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
         </band>
     </pageHeader>
     <columnHeader>
         <band height="113" splitType="Stretch">
             <line>
-                <reportElement x="40" y="11" width="490" height="1" uuid="25b8ee02-e99c-4cfb-b2a0-30b40730223e"/>
+                <reportElement x="40" y="11" width="491" height="1" uuid="25b8ee02-e99c-4cfb-b2a0-30b40730223e"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <line>
                 <reportElement x="40" y="12" width="1" height="98" uuid="5cc728d8-5dea-4e3c-9f99-87233d7958a3"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <staticText>
                 <reportElement x="465" y="12" width="60" height="26" uuid="46f36ebd-63c5-4733-ac8d-6e7bcdd99724"/>
@@ -484,6 +522,9 @@
             </staticText>
             <line>
                 <reportElement x="41" y="38" width="490" height="1" uuid="6cd0bc75-9864-4088-b746-a02d0bd50da0"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <textField>
                 <reportElement x="68" y="39" width="209" height="14" uuid="b2b8c224-1665-4e2d-9b90-1034ae65d2b0"/>
@@ -501,12 +542,21 @@
             </textField>
             <line>
                 <reportElement x="41" y="67" width="490" height="1" uuid="a654a57e-4ab5-47d6-9d17-27ba9fe82831"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <line>
                 <reportElement x="40" y="82" width="490" height="1" uuid="8d128d13-b4b6-465e-bb57-71d1102fe293"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <line>
-                <reportElement x="40" y="110" width="490" height="1" uuid="beba24a0-a1b2-4040-8007-9897f26a92d1"/>
+                <reportElement x="40" y="110" width="491" height="1" uuid="beba24a0-a1b2-4040-8007-9897f26a92d1"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <textField>
                 <reportElement x="149" y="83" width="192" height="14" uuid="303a4db3-4523-4718-b50f-642e49d9eaee"/>
@@ -523,13 +573,22 @@
                 <textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
             </textField>
             <line>
-                <reportElement x="530" y="11" width="1" height="100" uuid="6720b16f-e8fe-41fe-a232-a83b8e186f05"/>
+                <reportElement x="530" y="12" width="1" height="98" uuid="6720b16f-e8fe-41fe-a232-a83b8e186f05"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <line>
                 <reportElement x="460" y="12" width="1" height="98" uuid="ef5d6545-871e-4767-88d5-f347012a1bb6"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <line>
-                <reportElement x="364" y="11" width="1" height="56" uuid="04574aec-da59-4b73-b124-75957306d642"/>
+                <reportElement x="364" y="12" width="1" height="55" uuid="04574aec-da59-4b73-b124-75957306d642"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <staticText>
                 <reportElement x="283" y="12" width="81" height="27" uuid="148e7381-b57c-4542-bafb-906c4ff09e28"/>
@@ -541,7 +600,10 @@
 ]]></text>
             </staticText>
             <line>
-                <reportElement x="277" y="11" width="1" height="56" uuid="bb9a9fd2-c66b-4930-9542-38e47f701d68"/>
+                <reportElement x="277" y="12" width="1" height="55" uuid="bb9a9fd2-c66b-4930-9542-38e47f701d68"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <staticText>
                 <reportElement x="68" y="12" width="81" height="27" uuid="ca7dd853-ae93-43fa-82d4-84c40140362b"/>
@@ -554,6 +616,9 @@
             </staticText>
             <line>
                 <reportElement x="62" y="11" width="1" height="56" uuid="20a89524-3a35-4afb-be20-c19c7abc8642"/>
+                <graphicElement>
+                    <pen lineWidth="0.6"/>
+                </graphicElement>
             </line>
             <staticText>
                 <reportElement x="41" y="11" width="21" height="27" uuid="8b9dc177-10cd-44ed-8941-b9b8e8bba840"/>
